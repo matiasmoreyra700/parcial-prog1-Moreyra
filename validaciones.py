@@ -3,7 +3,11 @@ from procesamiento import*
 
 
 def validar_cantidad_alumnos() -> int:
+    """Pide un numero del 1 al 30
 
+    Returns:
+        int: Devuelve el numero ingresado despues de validarlo
+    """
     contador = 0
     while True:
         if contador >= 1:
@@ -21,7 +25,14 @@ def validar_cantidad_alumnos() -> int:
 
 
 def cargar_nombres(cantidad_alumnos : list) -> list:
-    
+    """Carga una lista con la cantidad de nombres indicada
+
+    Args:
+        cantidad_alumnos (list): La cantidad de nombres a cargar
+
+    Returns:
+        list: Devuelve la lista de nombres despues de validarla
+    """
     nombres = len(cantidad_alumnos) * [0]
     for i in range(len(nombres)):
         while True:
@@ -39,7 +50,15 @@ def cargar_nombres(cantidad_alumnos : list) -> list:
 
 
 def cargar_notas(cantidad_alumnos : list, lista_nombres : list) -> list:
-    
+    """Pide y carla las notas de los alumnos
+
+    Args:
+        cantidad_alumnos (list): Lista con la catidad de alumnos
+        lista_nombres (list): Lista con los nombres de los alumnos
+
+    Returns:
+        list: Devuelve la lista con las notas cargadas
+    """
     lista_notas = len(cantidad_alumnos) * [0]
     
     for i in range(len(lista_notas)):
@@ -58,8 +77,13 @@ def cargar_notas(cantidad_alumnos : list, lista_nombres : list) -> list:
     return lista_notas
 
 
-
 def cantidad_alumnos_condicion(lista_promedios : list):
+    """Muestra la cantidad de alumnos en cada condicion
+
+    Args:
+        lista_promedios (list): Lista con los promedios de los parciales
+    """
+    
     promociona = 0
     aprueba = 0
     desaprueba = 0
@@ -74,13 +98,23 @@ def cantidad_alumnos_condicion(lista_promedios : list):
     
     print(f"\nCantidad de alumnos por condición:\nPromociona: {promociona}\nAprueba: {aprueba}\nDesaprueba: {desaprueba}")
     
-    
 
 def buscar_alumno(lista_nombres : list, nombre : str) -> bool:
+    """Busca si un nombre esta en la lista de nombres
+
+    Args:
+        lista_nombres (list): Lista con los nombres de los alumnos
+        nombre (str): Nombre del alumno que se busca
+
+    Returns:
+        bool: Devuelve:
+            True: Si el nombre estaba en la lista
+            False: Si el nombre NO estaba en la lista
+    """
+    
     encontrado = False
     for i in range(len(lista_nombres)):
         if nombre == lista_nombres[i]:
             encontrado = True
     
     return encontrado
-        

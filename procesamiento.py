@@ -38,7 +38,9 @@ def validar_entero(cadena : str) -> bool:
 
 
 def validar_cadena(cadena : str) -> bool:
-    """Recibe una cadena(str) y determina si su contenido son letras o espacios
+    """Recibe una cadena(str) y determina si su contenido son letras o espacios.
+        Revisa que el numero de mayusculas sea 1 o 2 
+        Revisa que el numero de espacios sea 1
 
     Args:
         cadena (str): La cadena(str) a verificar
@@ -77,7 +79,16 @@ def validar_cadena(cadena : str) -> bool:
 
 
 def calcular_promedios(cantidad_alumnos : list, primer_parcial : list, segundo_parcial : list) -> list:
-    
+    """Calcula los promedios de los dos parciales
+
+    Args:
+        cantidad_alumnos (list): Lista con la cantidad total de alumnos
+        primer_parcial (list): Notas del primer parcial
+        segundo_parcial (list): Notas del segundo parcial
+
+    Returns:
+        list: Devuelve la lista con los promedios
+    """
     lista_promedios = len(cantidad_alumnos) * [0]
     
     for i in range(len(lista_promedios)):
@@ -87,15 +98,29 @@ def calcular_promedios(cantidad_alumnos : list, primer_parcial : list, segundo_p
     return lista_promedios
 
 
-
 def mostrar_estadisticas(lista_nombres : list, primer_parcial : list, segundo_parcial : list, lista_promedios :list):
-    
+    """Muestra todos los datos de los alumnos
+
+    Args:
+        lista_nombres (list): Lista con los nombres de los alumnos
+        primer_parcial (list): Notas del primer parcial
+        segundo_parcial (list): Notas del segundo parcial
+        lista_promedios (list): Lista con los promedios de los parciales
+    """
     for i in range(len(lista_nombres)):
         print(f"Notas de {lista_nombres[i]}: \nPrimer parcial: {primer_parcial[i]}\nSegundo parcial: {segundo_parcial[i]}\nPromedio: {lista_promedios[i]}\n")
         
 
 def calcular_promedio_general(lista_promedios : list, cantidad_alumnos : int) -> float:
-    
+    """Calcula el promedio de todo el alumnado
+
+    Args:
+        lista_promedios (list): Lista con los promedios de los parciales
+        cantidad_alumnos (int): Cantidad total de alumnos
+
+    Returns:
+        float: Devuelve el promedio de todo el alumnado
+    """
     
     for i in range(len(lista_promedios)):
         if i == 0:
@@ -145,15 +170,29 @@ def encontrar_mayor(lista : list) -> int:
 
 
 def mostrar_alumno(lista_nombres : list, primer_parcial : list, segundo_parcial : list, lista_promedios : list, nombre : str):
-    
+    """Muestra el nombre buscado despues de verificarlo
+
+    Args:
+        lista_nombres (list): Lista con los nombres de los alumnos
+        primer_parcial (list): Notas del primer parcial
+        segundo_parcial (list): Notas del segundo parcial
+        lista_promedios (list): Lista con los promedios de los parciales
+        nombre (str): El nombre que se busca
+    """
     for i in range(len(lista_nombres)):
         if nombre == lista_nombres[i]:
             print(f"\nNotas de {lista_nombres[i]}:\nPrimer parcial: {primer_parcial[i]}\nSegundo parcial: {segundo_parcial[i]}\nPromedio: {lista_promedios[i]}")
-            
-            
+                 
             
 def contar_vocales(nombre : str) -> int:
-    
+    """Cuenta las vocales en el nombre dado
+
+    Args:
+        nombre (str): Nombre a revisar
+
+    Returns:
+        int: Devuelve el numero de vocales encontrado
+    """
     vocales = "aeiou"
     contador = 0
     
@@ -166,6 +205,15 @@ def contar_vocales(nombre : str) -> int:
     
 
 def invertir_nombre(nombre : str) -> str:
+    """Invierte el nombre dado
+
+    Args:
+        nombre (str): El nombre a invertir
+
+    Returns:
+        str: Devuelve el nombre invertido
+    """
+    
     invertido = ""
     for i in range(len(nombre)-1, -1, -1):
         invertido += nombre[i]
@@ -173,15 +221,14 @@ def invertir_nombre(nombre : str) -> str:
     return invertido
 
 
-
 def ordenar_promedios(lista_promedios : list, lista_nombres : list, primer_parcial : list, segundo_parcial : list):
-    """Ordena los elementos de una lista de mayor a menor con el metodo de burbuja
+    """Ordena los elementos de una lista y sus listas paralelas, de mayor a menor, con el metodo de burbuja
 
     Args:
-        lista (list): La lista de elementos a ordenar
-
-    Returns:
-        list: Devuelve la lista de los elementos ordenados
+        lista_promedios (list): Lista con los promedios de los parciales
+        lista_nombres (list): Lista con los nombres de los alumnos
+        primer_parcial (list): Notas del primer parcial
+        segundo_parcial (list): Notas del segundo parcial
     """
     for izq in range(len(lista_promedios) - 1):
         for der in range((izq +1), len(lista_promedios)):
